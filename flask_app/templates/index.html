@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encoder and Decoder</title>
+</head>
+<br>
+<body>
+    <h1>Welcome to the encryption server!</h1>
+    <h2></h2>
+    <h2>here you can encode texts</h2>
+    <form method="POST" action="/send_encoder">
+        <label for="text_encoder">text to encode: </label>
+        <input type="text" id="text" name="text" required><br>
+        <input type="submit" value="send_encoder">
+    </form>
+    <h2>Encrypted texts</h2>
+    <ul>
+        {% for Encrypted_text in encrypted_texts %}
+            <li>{{ Encrypted_text.text }}</li>
+            <br>
+        {% endfor %}
+    </ul>
+    <br>
+    <h2>here you decode texts sent to you</h2>
+    <form method="POST" action="/send_decoder">
+        <label for="text_decoder">encoded text to decode: </label>
+        <input type="text" id="encoded_text" name="encoded_text" required><br>
+        <input type="submit" value="send_decoder">
+    </form>
+    <h2>Decrypted texts</h2>
+    <ul>
+        {% for Decrypted_text in decrypted_texts %}
+            <li>{{ Decrypted_text.text }}</li>
+            <br>
+        {% endfor %}
+    </ul>
+
+
+</body>
+</html>
